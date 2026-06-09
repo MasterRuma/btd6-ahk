@@ -1,23 +1,23 @@
 global TrainingWorkflow := [
-    ["bomb", 7],
-    ["tack", 6],
-    ["ice", 6],
-    ["glue", 6],
-    ["sniper", 7],
-    ["sub", 7],
-    ["boat", 8],
-    ["ace", 8],
-    ["heli", 10],
-    ["mortar", 7],
-    ["wizard", 7],
-    ["super", 22],
-    ["ninja", 8],
-    ["alch", 6],
-    ["druid", 7],
-    ["farm", 10],
-    ["spike", 7],
-    ["village", 7],
-    ["engineer", 7]
+    ["bomb", 3],
+    ["tack", 3],
+    ["ice", 3],
+    ["glue", 3],
+    ["sniper", 3],
+    ["sub", 4],
+    ["boat", 4],
+    ["ace", 4],
+    ["heli", 5],
+    ["mortar", 3],
+    ["wizard", 3],
+    ["super", 10],
+    ["ninja", 4],
+    ["alch", 3],
+    ["druid", 4],
+    ["farm", 5],
+    ["spike", 3],
+    ["village", 3],
+    ["engineer", 3]
 ]
 
 global isTrainingMode := false
@@ -48,7 +48,7 @@ ApplyTrainingConfig() {
         item := TrainingWorkflow[trainingIndex]
         trainingMonkeyType := item[1]
         mapSelect := "ancient_portal"
-        userDifficulty := "easy"
+        userDifficulty := "deflation"
         LogMsg("Training: Next monkey set to " trainingMonkeyType " (" item[2] " games)")
     }
 }

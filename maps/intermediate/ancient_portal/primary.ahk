@@ -1,4 +1,4 @@
-AncientPortalEasy() {
+AncientPortalPrimary() {
     global TS := Map(
         "Hero", ["hero", [1200, 465]],
     )
@@ -8,5 +8,6 @@ AncientPortalEasy() {
     WaitForRound(3)
 
     Place("Hero")
+
 }
 
