@@ -1,9 +1,23 @@
 AncientPortalEasy() {
+    global trainingMonkeyType
     global TS := Map(
-        "Dart", ["dart", [1177, 428]],
-        "Druid A", ["druid", [1245, 446]],
-        "Druid B", ["druid", [1321, 456]],
-        "Sniper", ["sniper", [936, 476]]
+        "Hero", ["hero", [1200, 465]],
+        "TrainingLand", [trainingMonkeyType, [540, 262]],
+        "TrainingWater", [trainingMonkeyType, [1208, 692]],
     )
-    GeneralEasy()
+
+    StartGame()
+
+    WaitForRound(3)
+
+    Place("Hero")
+
+    WaitForRound(10)
+    
+    if (trainingMonkeyType ~= "sub|boat") {
+        Place("TrainingWater")
+    } else {
+        Place("TrainingLand")
+    }
 }
+

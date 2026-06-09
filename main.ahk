@@ -6,6 +6,8 @@
 #Include utils\_include.ahk
 #Include data\_include.ahk
 #Include teamEvent.ahk
+#Include training_monkey.ahk
+
 
 ^!+j:: {
     ClearLogFile()
