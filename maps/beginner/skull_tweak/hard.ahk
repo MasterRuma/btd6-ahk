@@ -1,7 +1,7 @@
-SpaPitsHard() {
+SkullTweakHard() {
     global TS := Map(
-        "Dart", ["dart", [678, 370]],
-        "Boomer", ["boomer", [580, 668]],
+        "Dart", ["dart", [430, 566]],
+        "Boomer", ["boomer", [540, 568]],
     )
 
     Place("Dart")

@@ -3,5 +3,5 @@
 
 SPA_PITS_DATA := Map(
     "easy", [SpaPitsEasy, ""],
-    "hard", [SpaPitsHard, "benjamin"],
+    "hard", [SpaPitsHard, ""],
 )

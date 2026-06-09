@@ -3,6 +3,6 @@
 
 TINKERTON_DATA := Map(
     "easy", [TinkertonEasy, ""],
-    "hard", [TinkertonHard, "obyn"],
+    "hard", [TinkertonHard, ""],
 
 )

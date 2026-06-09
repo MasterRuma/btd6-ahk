@@ -1,5 +1,10 @@
 global TeamEventWorkflow := [
-    ["spa_pits", "impoppable", 3],
+    ["in_the_loop", "hard", 1],
+    ["skull_tweak", "hard", 1],
+    ["three_mines_round", "hard", 1],
+    ["spa_pits", "hard", 1],
+    ["tinkerton", "hard", 1],
+
 ]
 
 global isTeamEventMode := false

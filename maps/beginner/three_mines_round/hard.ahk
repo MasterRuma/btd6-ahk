@@ -1,7 +1,7 @@
-SpaPitsHard() {
+ThreeMinesRoundHard() {
     global TS := Map(
-        "Dart", ["dart", [678, 370]],
-        "Boomer", ["boomer", [580, 668]],
+        "Dart", ["dart", [760, 843]],
+        "Boomer", ["boomer", [749, 243]],
     )
 
     Place("Dart")
