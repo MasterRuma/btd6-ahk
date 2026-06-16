@@ -7,6 +7,7 @@
 #Include data\_include.ahk
 #Include teamEvent.ahk
 #Include training_monkey.ahk
+#Include towerUnlock.ahk
 
 
 ^!+j:: {

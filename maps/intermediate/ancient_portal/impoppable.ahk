@@ -1,19 +1,19 @@
 AncientPortalImpoppable() {
     global TS := Map(
-        "Hero", ["hero", [1146, 279]],
-        "Dart", ["dart", [1144, 472]],
-        "Boomer A", ["boomer", [1273, 482]],
-        "Boomer B", ["boomer", [1051, 447]],
-        "Ice", ["ice", [1238, 334]],
-        "Bomb", ["bomb", [1475, 706]]
+        "Hero", ["hero", [1157, 278]],
+        "Dart", ["dart", [1177, 437]],
+        "Boomer A", ["boomer", [1253, 451]],
+        "Boomer B", ["boomer", [1101, 425]],
+        "Ice", ["ice", [1218, 331]],
+        "Boomer C", ["boomer", [1338, 457]],
     )
 
-    Place("Dart", true)
-    Place("Boomer A", true)
+    Place("Hero", true)
 
     StartGame()
 
-    Place("Hero", true)
+    Place("Dart", true)
+    Place("Boomer A", true)
 
     Upgrade("Dart", 0, 2, 4, true)
     Upgrade("Boomer A", 0, 0, 2, true)
@@ -27,7 +27,8 @@ AncientPortalImpoppable() {
     Upgrade("Ice", 0, 2, 0, true)
     Upgrade("Ice", 5, 0, 0, true)
 
-    Place("Bomb", true)
-    Upgrade("Bomb", 0, 0, 5, true)
+    Place("Boomer C", true)
+    Upgrade("Boomer C", 0, 0, 2, true)
+    Upgrade("Boomer C", 0, 5, 0, true)
 }
 
