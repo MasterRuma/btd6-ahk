@@ -5,9 +5,9 @@
 #Include maps\_include.ahk
 #Include utils\_include.ahk
 #Include data\_include.ahk
-#Include teamEvent.ahk
-#Include training_monkey.ahk
-#Include towerUnlock.ahk
+#Include workflows\teamEvent.ahk
+#Include workflows\training_monkey.ahk
+#Include workflows\towerUnlock.ahk
 
 
 ^!+j:: {

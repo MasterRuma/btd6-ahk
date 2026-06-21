@@ -19,6 +19,14 @@ global TrainingWorkflow := [
     ["engineer", 3]
 ]
 
+global PostUnlockTrainingWorkflow := [
+    ["desperado", 3],
+    ["dartling", 4],
+    ["mermonkey", 4],
+    ["farm", 4],
+    ["beast", 6]
+]
+
 global SetupWorkflow := ["easy", "primary"]
 global isSetupMode := false
 global setupIndex := 1
@@ -29,12 +37,18 @@ global trainingCount := 0
 global trainingLastVictories := 0
 global trainingMonkeyType := ""
 
+global isPostUnlockTrainingMode := false
+global postUnlockTrainingIndex := 1
+global postUnlockTrainingCount := 0
+global postUnlockTrainingLastVictories := 0
+
 ^!+f:: {
     ClearLogFile()
     LogMsg("Monkey Training Script started (Ctrl+Alt+Shift+F)")
     
     global isTrainingMode := true
     global isSetupMode := true
+    global isPostUnlockTrainingMode := false
     global setupIndex := 1
     global trainingIndex := 1
     global trainingCount := 0
@@ -43,6 +57,26 @@ global trainingMonkeyType := ""
     ApplyTrainingConfig()
     
     SetTimer(CheckTrainingProgress, 2000)
+    SetTimer(CheckPostUnlockTrainingProgress, 0)
+    
+    Start()
+}
+
+^!+g:: {
+    ClearLogFile()
+    LogMsg("Post-Unlock Monkey Training Script started (Ctrl+Alt+Shift+G)")
+    
+    global isTrainingMode := false
+    global isSetupMode := false
+    global isPostUnlockTrainingMode := true
+    global postUnlockTrainingIndex := 1
+    global postUnlockTrainingCount := 0
+    global postUnlockTrainingLastVictories := victories
+    
+    ApplyPostUnlockTrainingConfig()
+    
+    SetTimer(CheckPostUnlockTrainingProgress, 2000)
+    SetTimer(CheckTrainingProgress, 0)
     
     Start()
 }
@@ -63,6 +97,18 @@ ApplyTrainingConfig() {
         trainingMonkeyType := item[1]
         userDifficulty := "deflation"
         LogMsg("Training: Next monkey set to " trainingMonkeyType " (" item[2] " games)")
+    }
+}
+
+ApplyPostUnlockTrainingConfig() {
+    global postUnlockTrainingIndex, mapSelect, userDifficulty, trainingMonkeyType
+    mapSelect := "ancient_portal"
+    userDifficulty := "medium"
+
+    if (postUnlockTrainingIndex <= PostUnlockTrainingWorkflow.Length) {
+        item := PostUnlockTrainingWorkflow[postUnlockTrainingIndex]
+        trainingMonkeyType := item[1]
+        LogMsg("Post-Unlock Training: Next monkey set to " trainingMonkeyType " (" item[2] " games)")
     }
 }
 
@@ -107,6 +153,38 @@ CheckTrainingProgress() {
                 
                 ApplyTrainingConfig()
             }
+        }
+    }
+}
+
+CheckPostUnlockTrainingProgress() {
+    global isPostUnlockTrainingMode, postUnlockTrainingIndex, postUnlockTrainingCount, postUnlockTrainingLastVictories, trainingMonkeyType
+    
+    if (!isPostUnlockTrainingMode) {
+        SetTimer(CheckPostUnlockTrainingProgress, 0)
+        return
+    }
+    
+    if (victories > postUnlockTrainingLastVictories) {
+        global postUnlockTrainingLastVictories := victories
+        global postUnlockTrainingCount := postUnlockTrainingCount + 1
+        
+        item := PostUnlockTrainingWorkflow[postUnlockTrainingIndex]
+        LogMsg("Post-Unlock Training: " trainingMonkeyType " finished " postUnlockTrainingCount " / " item[2] " games.")
+        
+        if (postUnlockTrainingCount >= item[2]) {
+            global postUnlockTrainingIndex := postUnlockTrainingIndex + 1
+            global postUnlockTrainingCount := 0
+            
+            if (postUnlockTrainingIndex > PostUnlockTrainingWorkflow.Length) {
+                LogMsg("Post-Unlock Training Workflow Completed! Stopping script.")
+                global isPostUnlockTrainingMode := false
+                SetTimer(CheckPostUnlockTrainingProgress, 0)
+                Reload()
+                return
+            }
+            
+            ApplyPostUnlockTrainingConfig()
         }
     }
 }

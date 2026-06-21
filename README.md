@@ -5,7 +5,6 @@ from map category chosen by the user (expert by default) on easy, standard diffi
 can be set to choose a random map, a map with a collection event bonus active, or a single map
 specified by the user.
 
-
 > **Warning**  
 > Read the [Ninja Kiwi Terms of Service](https://ninjakiwi.com/terms) before using this script
 > **_at your own risk!_**
@@ -14,10 +13,11 @@ specified by the user.
 > flagged for cheating (indicated by leaves on the settings button).
 
 This is a fork from [Valokoodari/btd6-ahk](https://github.com/Valokoodari/btd6-ahk). The main goals include:
+
 - map strategies/solutions that work without Double Cash or Fast Track
 - maintain script functionality
-    - after NK updates
-    - during collection events     
+  - after NK updates
+  - during collection events
 
 Other versions, including strategies around Double Cash and/or Fast Track, may be found on the Valokoodari Discord:
 
@@ -25,8 +25,8 @@ Other versions, including strategies around Double Cash and/or Fast Track, may b
 
 **[Mode Support](/docs/mode_support.md)** contains map and mode availability.
 
-
 ## Requirements:
+
 - Game running **fullscreen** on a **1920x1080** display
 - **Normal or small cursor** selected
 - Game language set to **English**
@@ -44,6 +44,7 @@ Other versions, including strategies around Double Cash and/or Fast Track, may b
 > modes may require full MK.
 
 ## Usage
+
 For optimal results set `mapSelect` in `config.ini` according to the current event (`none`,
 `birthday`, `easter`, `fireworks`, `halloween`, `holiday`, `totem`). You may also set `mapSelect`
 to the name of a single map in `snake_case` with special characters like `'` and `#` removed. The
@@ -57,5 +58,17 @@ The script can be stopped (and reloaded) with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> +
 
 ## Credits
 
-This project is based on [btd6-ahk](https://github.com/Valokoodari/btd6-ahk) by [Valokoodari](https://github.com/Valokoodari).    
+This project is based on [btd6-ahk](https://github.com/Valokoodari/btd6-ahk) by [Valokoodari](https://github.com/Valokoodari).  
 Additional credit goes to various members of the Valokoodari Discord who have contributed.
+
+# MasterRuma Fork Additions
+
+This fork includes the following committed additions and workflow changes:
+
+- Team Event automation, a coordinate-copy hotkey, and Discord webhook logging support.
+- Beginner page 1 Hard Standard clear scripts, excluding Monkey Meadow.
+- BTD6 v55 Ancient Portal updates, including Churchill-based monkey XP farming.
+- Ancient Portal training flow changed from Easy setup toward Deflation-based XP farming.
+- Ancient Portal Primary, Hard, Alternate, and Impoppable strategies.
+- Ancient Portal Impoppable loop for tower unlock progression.
+- Training Monkey workflow updates for repeated tower XP farming.
