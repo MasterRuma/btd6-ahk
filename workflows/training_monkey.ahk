@@ -23,6 +23,7 @@ global PostUnlockTrainingWorkflow := [
     ["desperado", 3],
     ["dartling", 4],
     ["mermonkey", 4],
+    ["skywarden", 4],
     ["farm", 4],
     ["beast", 6]
 ]

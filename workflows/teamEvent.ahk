@@ -1,9 +1,11 @@
 global TeamEventWorkflow := [
-    ["in_the_loop", "hard", 1],
-    ["skull_tweak", "hard", 1],
-    ["three_mines_round", "hard", 1],
-    ["spa_pits", "hard", 1],
-    ["tinkerton", "hard", 1],
+    ["monkey_meadow", "medium", 1],
+    ["moon_landing", "hard", 2],
+    ["three_mines_round", "medium", 2], 
+    ["moon_landing", "magic", 2],
+    ["monkey_meadow", "reverse", 2],
+    ["three_mines_round", "reverse", 2],
+    ["moon_landing", "alternate", 3],
 ]
 
 global isTeamEventMode := false

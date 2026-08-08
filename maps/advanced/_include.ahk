@@ -1,3 +1,4 @@
+#Include ascent\main.ahk
 #Include dark_path\main.ahk
 #Include erosion\main.ahk
 #Include midnight_mansion\main.ahk

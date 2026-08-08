@@ -16,5 +16,5 @@ MoonLandingImpoppable() {
         "VillageA", ["village", [1378, 887]],
         "VillageB", ["village", [1266, 854]],
     )
-    IntermediateImpoppable
+    IntermediateImpoppable()
 }

@@ -48,22 +48,16 @@ TestRemove() {
 
 TestPlacements() {
     global TS := Map(
-        "Ace A", ["ace", [1378, 783]],
-        "Alch A", ["alch", [1023, 413]],
-        "Alch B", ["alch", [1453, 622]],
-        "Alch C", ["alch", [1457, 679]],
-        "Ben", ["hero", [1198, 73]],
-        "Druid A", ["druid", [943, 626]],
-        "Farm A", ["farm", [1222, 421]],
-        "Farm B", ["farm", [1224, 177]],
-        "Farm C", ["farm", [1386, 185]],
-        "Sniper B", ["sniper", [1240, 758]],
-        "Spike A", ["spike", [1598, 629]],
-        "Spike B", ["spike", [1598, 704]],
-        "Village A", ["village", [1215, 299]],
-        "Village B", ["village", [1003, 335]],
-        "Village C", ["village", [1365, 689]],
-        "Wizard A", ["wizard", [1019, 479]],
+        "Hero", ["hero", [252, 584]],
+        "Mortar 1", ["mortar", [422, 679]],
+        "Mortar 2", ["mortar", [888, 448]],
+        "Alch 1", ["alch", [1106, 747]],
+        "Alch 2", ["alch", [1120, 816]],
+        "Alch 3", ["alch", [1054, 617]],
+        "Alch 4", ["alch", [1082, 879]],
+        "Alch 5", ["alch", [1176, 932]],
+        "Village", ["village", [1201, 750]],
+        "Dartling", ["dartling", [70, 646]], 
     )
 
     for tower in TS {

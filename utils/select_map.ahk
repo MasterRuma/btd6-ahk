@@ -37,11 +37,11 @@ SelectRandomMap() {
         Case "beginner":
             SelectMap(1, Random(1, 25))
         Case "intermediate":
-            SelectMap(6, Random(1, 24))
+            SelectMap(6, Random(1, 25))
         Case "advanced":
-            SelectMap(10, Random(1, 21))
+            SelectMap(11, Random(1, 22))
         Case "expert":
-            SelectMap(14, Random(1, 13))
+            SelectMap(15, Random(1, 13))
         Default:
             randomMap := ALL_MAPS[Random(1, ALL_MAPS.Length)]
             SelectMap(randomMap[1], randomMap[2])

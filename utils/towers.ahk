@@ -19,7 +19,7 @@ Place(tower, asap := false) {
             if CheckDefeat() or SearchImage("states\victory") or CheckInstaMonkey() {
                 global defeated := true
                 LogMsg('Found defeat when placing ' tower '')
-                if detailedLogging or type ~= "mermonkey|desperado" {
+                if detailedLogging or type ~= "mermonkey|desperado|skywarden" {
                     LogMsg('Make sure ' type ' hotkey is set to "' GetKeyName(RegExReplace(KEYS[type], "^\s*\{(.*)\}\s*$", "$1")) '"')
                 }
                 ScreenRecordDefeat()
@@ -495,7 +495,7 @@ Paragon(tower, path, cash := 0, asap := false) {
 global allTowers := [
     "dart","boomer","bomb","tack","ice","glue", "desperado",
     "sniper","sub","boat","ace","heli","mortar","dartling",
-    "wizard","super","ninja","alch","druid", "mermonkey",
+    "wizard","super","ninja","alch","druid", "mermonkey", "skywarden",
     "farm", "spike","village","engineer","beast"
 ]
 
@@ -503,12 +503,12 @@ global bannedTowers := Map(
     "deflation", ["farm"],
     "primary", [
         "sniper","sub","boat","ace","heli","mortar","dartling",
-        "wizard","super","ninja","alch","druid", "mermonkey",
+        "wizard","super","ninja","alch","druid", "mermonkey", "skywarden",
         "farm", "spike","village","engineer","beast"
     ],
     "military", [
         "dart","boomer","bomb","tack","ice","glue", "desperado",
-        "wizard","super","ninja","alch","druid", "mermonkey",
+        "wizard","super","ninja","alch","druid", "mermonkey", "skywarden",
         "farm", "spike","village","engineer","beast"
     ],
     "magic", [
@@ -524,7 +524,7 @@ global bannedTowers := Map(
 global nonWaterTowers := [
     "dart","boomer","bomb","tack","glue", "desperado",
     "sniper","ace","heli","mortar","dartling",
-    "wizard","super","ninja","alch","druid",
+    "wizard","super","ninja","alch","druid", "skywarden",
     "farm", "spike","village","engineer","beast"
 ]
 

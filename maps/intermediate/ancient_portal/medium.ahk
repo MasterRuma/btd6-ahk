@@ -3,7 +3,7 @@ AncientPortalMedium() {
     global TS := Map(
         "Boomer", ["boomer", [271, 778]],
         "Hero", ["hero", [427, 871]],
-        "TrainingTower", [trainingMonkeyType, [540, 262]],
+        "TrainingTower", [trainingMonkeyType, [271, 778]],
     )
 
     Place("Boomer", true)

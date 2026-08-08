@@ -23,6 +23,7 @@ KEYS := Map(
     "alch",         "{sc021}",
     "druid",        "{sc022}",
     "mermonkey",    "{sc018}",
+    "skywarden",    "{sc01A}",
 
     "farm",         "{sc023}",      ; Support towers
     "spike",        "{sc024}",
