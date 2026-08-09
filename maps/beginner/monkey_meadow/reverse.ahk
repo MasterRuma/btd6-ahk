@@ -40,8 +40,12 @@ MonkeyMeadowReverse() {
     Place("Hero", true)
     Upgrade("Wizard 1", 0, 1, 0, true)
 
-    Loop 14 {
+    Loop 4 {
         Place("Wizard " (A_Index + 1), true)
         Upgrade("Wizard " (A_Index + 1), 0, 3, 2, true)
+    }
+
+    Loop 25 {
+        Place("Wizard " (A_Index + 5), true)
     }
 }
