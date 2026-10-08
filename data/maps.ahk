@@ -82,33 +82,34 @@ global MAPS := [
     ],
     ; Page 11 - Advanced
     [
+        ["Ship Capture", SHIP_CAPTURE_DATA],
         ["Ascent", ASCENT_DATA],
         ["Mushroom Grotto", MUSHROOM_GROTTO_DATA],
         ["Party Parade", PARTY_PARADE_DATA],
         ["Sunset Gulch", SUNSET_GULCH_DATA],
         ["Enchanted Glade", ENCHANTED_GLADE_DATA],
-        ["Last Resort", LAST_RESORT_DATA],
     ],
     ; Page 12 - Advanced
     [
+        ["Last Resort", LAST_RESORT_DATA],
         ["Castle Revenge", CASTLE_REVENGE_DATA],
         ["Dark Path", DARK_PATH_DATA],
         ["Erosion", EROSION_DATA],
         ["Midnight Mansion", MIDNIGHT_MANSION_DATA],
         ["Sunken Columns", SUNKEN_COLUMNS_DATA],
-        ["X Factor", X_FACTOR_DATA],
     ],
     ; Page 13 - Advanced
     [
+        ["X Factor", X_FACTOR_DATA],
         ["Mesa", MESA_DATA],
         ["Geared", GEARED_DATA],
         ["Spillway", SPILLWAY_DATA],
         ["Cargo", CARGO_DATA],
         ["Pat's Pond", PATS_POND_DATA],
-        ["Peninsula", PENINSULA_DATA],
     ],
     ; Page 14 - Advanced
     [
+        ["Peninsula", PENINSULA_DATA],
         ["High Finance", HIGH_FINANCE_DATA],
         ["Another Brick", ANOTHER_BRICK_DATA],
         ["Off the Coast", OFF_THE_COAST_DATA],

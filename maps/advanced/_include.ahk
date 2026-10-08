@@ -1,3 +1,4 @@
+#Include ship_capture\main.ahk
 #Include ascent\main.ahk
 #Include dark_path\main.ahk
 #Include erosion\main.ahk

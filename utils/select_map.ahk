@@ -20,6 +20,10 @@ MapSelection() {
         SelectRandomMap()
     }
     LogMsg("Selected map: " MAPS[currentMap[1]][currentMap[2]][1])
+    if MAPS[currentMap[1]][currentMap[2]][2].Count = 0 {
+        LogMsg("Script stopped: no strategies registered for this map")
+        Reload()
+    }
     global lastMap := currentMap
     SelectDifficulty()
     global lastDifficulty := difficulty
@@ -39,7 +43,14 @@ SelectRandomMap() {
         Case "intermediate":
             SelectMap(6, Random(1, 25))
         Case "advanced":
-            SelectMap(11, Random(1, 22))
+            advancedMaps := []
+            for mapCoords in ALL_MAPS {
+                if mapCoords[1] >= 11 and mapCoords[1] <= 14 {
+                    advancedMaps.Push(mapCoords)
+                }
+            }
+            randomMap := advancedMaps[Random(1, advancedMaps.Length)]
+            SelectMap(randomMap[1], randomMap[2])
         Case "expert":
             SelectMap(15, Random(1, 13))
         Default:

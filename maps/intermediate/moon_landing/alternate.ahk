@@ -9,7 +9,7 @@ MooonLandingAlternate() {
         "Alch 4", ["alch", [1082, 879]],
         "Alch 5", ["alch", [1176, 932]],
         "Village", ["village", [1201, 750]],
-        "Dartling", ["dartling", [70, 646]], 
+        "Mortar 3", ["mortar", [136, 664]], 
     )
 
     Place("Mortar 1", true)
@@ -39,11 +39,10 @@ MooonLandingAlternate() {
     Aim("Mortar 2", 810, 728)
     Upgrade("Mortar 2", 0, 2, 4, true)
 
-    Place("Dartling", true)
-    Targeting("Dartling", 1)
-    Aim("Dartling", 605, 270)
-    Upgrade("Dartling", 2, 2, 0, true)
-    Upgrade("Dartling", 3, 0, 0, true)
+    Place("Mortar 3", true)
+    Aim("Mortar 3", 1266, 270)
+    Upgrade("Mortar 3", 2, 0, 2, true)
+    Upgrade("Mortar 3", 3, 0, 0, true)
 
     WaitForRound(80)
 
