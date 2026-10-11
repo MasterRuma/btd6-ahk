@@ -16,7 +16,7 @@
 }
 
 ^!+l:: {
-   
+    TestUpgrade()
 }
 
 ^!+p:: {
@@ -35,7 +35,6 @@ TestAbility() {
     Ability("sniper", "1", "4")
 }
 
-
 TestRemove() {
     reverseCoord := [840, 240]
     extendCoord := [840, 900]
@@ -43,7 +42,7 @@ TestRemove() {
     Remove(extendCoord[1], extendCoord[2])
     Sleep(2000)
     Remove(reverseCoord[1], reverseCoord[2])
-    
+
 }
 
 TestPlacements() {
@@ -57,7 +56,7 @@ TestPlacements() {
         "Alch 4", ["alch", [1082, 879]],
         "Alch 5", ["alch", [1176, 932]],
         "Village", ["village", [1201, 750]],
-        "Dartling", ["dartling", [70, 646]], 
+        "Dartling", ["dartling", [70, 646]],
     )
 
     for tower in TS {
@@ -66,6 +65,31 @@ TestPlacements() {
         }
     }
 
+}
+
+TestUpgrade() {
+    global TS := Map(
+        "Dart 1", ["dart", [564, 801]],
+        "Boomer 1", ["boomer", [241, 533]],
+        "Hero", ["hero", [325, 122]],
+        "Dart 2", ["dart", [112, 505]],
+        "Dart 3", ["dart", [292, 464]]
+    )
+
+    ; Place an unupgraded Dart Monkey at these coordinates before running.
+    Place("Dart 1", true)
+    Place("Boomer 1", true)
+    Place("Hero", true)
+    Upgrade("Boomer 1", 4, 0, 2, true)  ; 000 -> 402
+    Upgrade("Dart 1", 0, 2, 4, true)    ; 000 -> 024
+    Upgrade("Boomer 1", 1, 0, 0, true)  ; 402 -> 502
+
+    Upgrade("Dart 1", 0, 0, 1, true)    ; 024 -> 025
+    Place("Dart 2", true)
+    Upgrade("Dart 2", 5, 0, 2, true)    ; 000 -> 502
+    Place("Dart 3", true)
+    Upgrade("Dart 3", 0, 5, 0, true)    ; 000 -> 050
+    Paragon("Dart 1", 3, 0, true)
 }
 
 TestScreenRecord() {
