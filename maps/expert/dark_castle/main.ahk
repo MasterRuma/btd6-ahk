@@ -1,5 +1,6 @@
 #Include easy.ahk
 #Include primary.ahk
+#Include ftdc_primary.ahk
 #Include deflation.ahk
 #Include military.ahk
 #Include hard.ahk
@@ -12,7 +13,10 @@
 
 DARK_CASTLE_DATA := Map(
     "easy", [DarkCastleEasy, ""],
-    "primary", [DarkCastlePrimary, ""],
+    "primary", [
+        [DarkCastlePrimaryFTDC, "benjamin", true, true],
+        [DarkCastlePrimary, ""],
+    ],
     "deflation", [DarkCastleDeflation, "quincy"],
     "military", [DarkCastleMilitary, "etienne"],
     "hard", [

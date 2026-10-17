@@ -56,6 +56,10 @@ SearchUpgrade(path, paragon := false) {
     if SearchImage("upgrades\" path suffix "L", "", 230, (325 + path * 150), 300, (349 + path * 150)) {
         return true
     }
+    if paragon {
+        ; Accept the normal upgrade image while the Paragon image is still loading.
+        return SearchUpgrade(path)
+    }
 }
 
 DoubleCash(speed := true, power := "unchanged") {
