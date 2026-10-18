@@ -16,6 +16,7 @@ allowPowers := powerSettings
 userUnlockTier := enableUnlockTier
 userFreePlay := enableFreeplayInsta
 inFreeplay := false
+freeplayInstaCollected := false
 selectedMode := []
 lastMap := [1, 1]
 lastDifficulty := "easy"

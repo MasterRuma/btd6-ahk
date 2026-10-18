@@ -75,53 +75,73 @@ CheckSettings() {
 }
 
 InGame() {
-    ClickImage("buttons\ok", 1000, "*Trans0xFF00FF", 900, 720, 1000, 790)
-    ClickImage("buttons\ok_apopalypse", 1000, "*Trans0xFF00FF", 900, 720, 1000, 790)
-    If difficulty = "apopalypse" {
-        Sleep(1000)
-    }
-    
-    if changeSettings {
-        CheckSettings()
-    }
-    if difficulty != "apopalypse" and autoStart ="off" {
-        SetAutoStart("on")
-    }
-    if currentMap[1] == 0 or currentMap[2] == 0 {
-        Todo()
-        return
-    }
-    mapData := MAPS[currentMap[1]][currentMap[2]]
-    if mapData[2].Has(difficulty) {
-        if fast_track and fast_track != "unavailable" {
-            global currentRound := STARTING_ROUNDS_FT[difficulty]
-        } else {
-            global currentRound := STARTING_ROUNDS[difficulty]
+    Loop {
+        ClickImage("buttons\ok", 1000, "*Trans0xFF00FF", 900, 720, 1000, 790)
+        ClickImage("buttons\ok_apopalypse", 1000, "*Trans0xFF00FF", 900, 720, 1000, 790)
+        If difficulty = "apopalypse" {
+            Sleep(1000)
         }
-        selectedMode[1]()
-    } else {
-        Todo()
+
+        if changeSettings {
+            CheckSettings()
+        }
+        if difficulty != "apopalypse" and autoStart ="off" {
+            SetAutoStart("on")
+        }
+        if currentMap[1] == 0 or currentMap[2] == 0 {
+            Todo()
+            return
+        }
+        mapData := MAPS[currentMap[1]][currentMap[2]]
+        if mapData[2].Has(difficulty) {
+            if fast_track and fast_track != "unavailable" {
+                global currentRound := STARTING_ROUNDS_FT[difficulty]
+            } else {
+                global currentRound := STARTING_ROUNDS[difficulty]
+            }
+            selectedMode[1]()
+        } else {
+            Todo()
+        }
+        restartRequested := false
+        if difficulty != "" {
+            LogMsg("Waiting for the game to end...")
+            if enableFreeplayInsta and inFreeplay {
+                restartRequested := WaitForFreeplayInsta() == "restart"
+            } else {
+                WaitForVictoryOrDefeat()
+            }
+        }
+        ResetGameState(restartRequested)
+        if !restartRequested {
+            return
+        }
     }
-    if difficulty != "" {
-        LogMsg("Waiting for the game to end...")
-        (enableFreeplayInsta and inFreeplay) ? WaitForFreeplayInsta() : WaitForVictoryOrDefeat()
-    }
+}
+
+ResetGameState(restarting := false) {
     global defeated := false
-    global difficulty := ""
-    global currentMap := [0, 0]
     global mouseRest := [30, 1]
     global currentRound := 0
     global toweropen := ""
     global menuside := ""
     global shopopen := false
-    global double_cash := false
     global speed_adjust := false
     global allowPowers := powerSettings
     global inFreeplay := false
-    global fast_track := false
-    global selectedMode := []
+    global freeplayInstaCollected := false
+    global paused := false
     global enableUnlockTier := userUnlockTier
     global enableFreeplayInsta := userFreePlay
+
+    ; A restart keeps the selected strategy and the game's modifiers.
+    if !restarting {
+        global difficulty := ""
+        global currentMap := [0, 0]
+        global double_cash := false
+        global fast_track := false
+        global selectedMode := []
+    }
 }
 
 OpenBoxes() {

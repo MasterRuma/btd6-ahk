@@ -54,6 +54,10 @@ CheckLevelUp() {
 CheckInstaMonkey() {
     if ClickImage("states\insta_monkey") {
         LogMsg("Insta monkey detected")
+
+        if enableFreeplayInsta and inFreeplay {
+            global freeplayInstaCollected := true
+        }
 	    return true
     }
 }
@@ -371,7 +375,11 @@ WaitForFreeplayInsta() {
             LogMsg(A_ThisFunc "() | Defeat -  Found during freeplay on R" currentRound)
             return false
         }
-        if CheckInstaMonkey() {
+        if freeplayInstaCollected or CheckInstaMonkey() {
+            if enableFreeplayInsta and enableFreePlayInstaRestart {
+                RestartFreeplayAfterInsta()
+                return "restart"
+            }
             LogMsg(A_ThisFunc "() | Leaving freeplay after insta found")
             Send("{Esc}")
             Sleep(1500)
@@ -384,6 +392,32 @@ WaitForFreeplayInsta() {
         StartRoundAfterPause()
         Sleep(2000)
     }
+}
+
+RestartFreeplayAfterInsta() {
+    if !enableFreeplayInsta or !enableFreePlayInstaRestart or !freeplayInstaCollected {
+        return false
+    }
+
+    ; Do not guess button positions or go home if restart images are missing.
+    for imageName in ["restart", "restart_ok"] {
+        imagePath := A_ScriptDir "\img\buttons\" imageName ".png"
+        if !FileExist(imagePath) {
+            LogMsg(A_ThisFunc "() | Missing restart image: " imagePath)
+            throw Error("Freeplay restart requires a button screenshot: " imagePath)
+        }
+    }
+
+    LogMsg(A_ThisFunc "() | Restarting the same map after collecting an insta")
+    Send("{Esc}")
+    Sleep(1500)
+    if !ClickImage("buttons\restart", 1500) {
+        throw Error("Could not find the restart button in the pause menu.")
+    }
+    if !ClickImage("buttons\restart_ok", 5000) {
+        throw Error("Could not find the restart confirmation button.")
+    }
+    return true
 }
 
 WaitForRoundEnd(delay := 0) {

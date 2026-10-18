@@ -56,6 +56,17 @@ After opening BTD6, run the `main.ahk` script on the home menu, stage selection 
 The script can be stopped (and reloaded) with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Shift</kbd> +
 <kbd>P</kbd>.
 
+Set `enableFreeplayInsta=true` to collect an Insta Monkey in supported Freeplay strategies.
+With `enableFreePlayInstaRestart=true`, the script restarts the same map and difficulty
+after collecting the Insta Monkey and runs the strategy again. Set it to `false` to
+return home as before. The restart setting only applies while Freeplay Insta collection
+is enabled.
+
+Restarting requires `img/buttons/restart.png` (the pause menu restart button) and
+`img/buttons/restart_ok.png` (the confirmation button), captured at 1920x1080
+with the game language set to English. Missing images or unrecognized buttons stop
+the current run with an error.
+
 ## Credits
 
 This project is based on [btd6-ahk](https://github.com/Valokoodari/btd6-ahk) by [Valokoodari](https://github.com/Valokoodari).  
