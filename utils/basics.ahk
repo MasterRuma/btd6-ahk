@@ -49,5 +49,5 @@ MakeWindowActive(window := windowName) {
 }
 
 CheckDefeat() {
-    return SearchImage("states\defeat",,1835,10,1895,70) 
+    return SearchImage("states\defeat",,720,280,1210,410)
 }
